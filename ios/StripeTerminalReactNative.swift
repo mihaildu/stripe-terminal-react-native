@@ -296,10 +296,12 @@ class StripeTerminalReactNative: RCTEventEmitter, DiscoveryDelegate, BluetoothRe
         }
 
         let locationId = params["locationId"] as? String
+        let onBehalfOf: String? = params["onBehalfOf"] as? String
 
         let connectionConfig = LocalMobileConnectionConfiguration(
             locationId: locationId ?? selectedReader.locationId ?? "",
-            merchantDisplayName: nil // use the location name,
+            merchantDisplayName: nil, // use the location name,
+            onBehalfOf: onBehalfOf ?? nil
         )
 
         Terminal.shared.connectLocalMobileReader(selectedReader, delegate: self, connectionConfig: connectionConfig) { reader, error in
