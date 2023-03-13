@@ -36,7 +36,7 @@ class StripeTerminalReactNative: RCTEventEmitter, DiscoveryDelegate, BluetoothRe
     }
 
     @objc override static func requiresMainQueueSetup() -> Bool {
-        return false
+        return true
     }
 
     var discoverCancelable: Cancelable? = nil
